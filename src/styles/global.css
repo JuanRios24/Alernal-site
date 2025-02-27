@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: BankGothic;
+    src: url('../public/fonts/bank_gothic_medium.ttf');
+}
+
+@import "tailwindcss";
+
+@theme {
+    --font-bank-gothic: BankGothic;
+    --font-montserrat: Montserrat;
+}

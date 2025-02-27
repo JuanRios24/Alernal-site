@@ -1,0 +1,138 @@
+---
+import { SITE_TITLE } from "../consts";
+---
+
+<header class="bg-[#181818] text-white fixed w-full z-50">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="#" class="text-2xl font-bank-gothic tracking-wider">{SITE_TITLE}</a>
+      </div>
+
+      <!-- Desktop Navigation - aligned to the right -->
+      <div
+        class="hidden md:flex md:items-center md:justify-end md:flex-1 md:space-x-6"
+      >
+        <nav class="flex space-x-8">
+          <a href="#" class="px-3 py-2 text-sm font-medium hover:text-gray-300"
+            >Nosotros</a
+          >
+          <a href="#" class="px-3 py-2 text-sm font-medium hover:text-gray-300"
+            >Servicios</a
+          >
+          <a href="#" class="px-3 py-2 text-sm font-medium hover:text-gray-300"
+            >Recursos</a
+          >
+        </nav>
+
+        <!-- CTA Button -->
+        <a
+          href="#"
+          class="rounded-md bg-[#0097B2] px-4 py-2 text-sm font-medium text-white hover:bg-teal-600"
+        >
+          Agendar Consulta
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="flex md:hidden">
+        <button
+          onclick="toggleMenu()"
+          class="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-gray-800 hover:text-white"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg id="menuIcon" class="block h-6 w-6" aria-hidden="true">
+            <path
+              fill="none"
+              d="M4 6h16M4 12h16M4 18h16"
+              stroke="currentColor"
+              stroke-width="2"></path>
+          </svg>
+          <svg id="closeIcon" class="block h-6 w-6 hidden" aria-hidden="true">
+            <path
+              fill="none"
+              d="M6 18L18 6M6 6l12 12"
+              stroke="currentColor"
+              stroke-width="2"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile lateral menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-40 flex md:hidden hidden">
+    <!-- Backdrop - clicking here closes the menu -->
+    <div
+      class="fixed inset-0"
+	  style="background-color: rgba(0, 0, 0, 0.5);"
+      onclick="toggleMenu()"
+      aria-hidden="true"
+    >
+    </div>
+
+    <!-- Lateral menu sidebar -->
+    <div
+      class="relative ml-auto flex w-full max-w-sm flex-col overflow-y-auto bg-gray-900 pt-5 pb-4"
+    >
+      <div class="flex items-center justify-between px-4">
+        <h2 class="text-lg font-medium text-white">Menú</h2>
+        <button
+          onclick="toggleMenu()"
+          class="rounded-md p-2 text-gray-400 hover:bg-gray-800 hover:text-white"
+        >
+          <svg class="h-6 w-6" aria-hidden="true">
+            <path
+              fill="none"
+              d="M6 18L18 6M6 6l12 12"
+              stroke="currentColor"
+              stroke-width="2"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="mt-5 flex flex-grow flex-col">
+        <nav class="flex-1 space-y-1 px-2">
+          <a
+            href="#"
+            class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white"
+            >Nosotros</a
+          >
+          <a
+            href="#"
+            class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white"
+            >Servicios</a
+          >
+          <a
+            href="#"
+            class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white"
+            >Recursos</a
+          >
+          <div class="mt-4 px-3">
+            <a
+              href="#"
+              class="block rounded-md bg-teal-500 px-4 py-2 text-center text-base font-medium text-white hover:bg-teal-600"
+            >
+              Agendar Consulta
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script lang="ts">
+  function toggleMenu() {
+    const mobileMenu = document.getElementById("mobileMenu");
+    const menuIcon = document.getElementById("menuIcon");
+    const closeIcon = document.getElementById("closeIcon");
+
+    // Alternar la visibilidad del menú
+    mobileMenu.classList.toggle("hidden");
+
+    // Alternar los íconos del menú
+    menuIcon.classList.toggle("hidden");
+    closeIcon.classList.toggle("hidden");
+  }
+</script>
