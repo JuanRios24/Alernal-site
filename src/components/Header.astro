@@ -2,12 +2,16 @@
 import { SITE_TITLE } from "../consts";
 ---
 
-<header class="bg-[#181818] text-white fixed w-full z-50">
+<header
+  class="backdrop-blur-md bg-white/0 border-b border-white/0 text-white fixed w-full z-50"
+>
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
       <!-- Logo -->
       <div class="flex-shrink-0">
-        <a href="#" class="text-2xl font-bank-gothic tracking-wider">{SITE_TITLE}</a>
+        <a href="#" class="text-2xl font-bank-gothic tracking-wider"
+          >{SITE_TITLE}</a
+        >
       </div>
 
       <!-- Desktop Navigation - aligned to the right -->
@@ -15,13 +19,13 @@ import { SITE_TITLE } from "../consts";
         class="hidden md:flex md:items-center md:justify-end md:flex-1 md:space-x-6"
       >
         <nav class="flex space-x-8">
-          <a href="#" class="px-3 py-2 text-sm font-medium hover:text-gray-300"
+          <a href="#" class="px-2 py-2 text-md font-medium hover:text-gray-300"
             >Nosotros</a
           >
-          <a href="#" class="px-3 py-2 text-sm font-medium hover:text-gray-300"
+          <a href="#" class="px-2 py-2 text-md font-medium hover:text-gray-300"
             >Servicios</a
           >
-          <a href="#" class="px-3 py-2 text-sm font-medium hover:text-gray-300"
+          <a href="#" class="px-2 py-2 text-md font-medium hover:text-gray-300"
             >Recursos</a
           >
         </nav>
@@ -29,7 +33,7 @@ import { SITE_TITLE } from "../consts";
         <!-- CTA Button -->
         <a
           href="#"
-          class="rounded-md bg-[#0097B2] px-4 py-2 text-sm font-medium text-white hover:bg-teal-600"
+          class="rounded-md bg-[#0097B2] px-4 py-2 text-md font-medium text-white hover:opacity-90"
         >
           Agendar Consulta
         </a>
@@ -62,11 +66,11 @@ import { SITE_TITLE } from "../consts";
   </div>
 
   <!-- Mobile lateral menu -->
-  <div id="mobileMenu" class="fixed inset-0 z-40 flex md:hidden hidden">
+  <div id="mobileMenu" class="fixed inset-0 z-40 md:hidden hidden">
     <!-- Backdrop - clicking here closes the menu -->
     <div
       class="fixed inset-0"
-	  style="background-color: rgba(0, 0, 0, 0.5);"
+      style="background-color: rgba(0, 0, 0, 0.5);"
       onclick="toggleMenu()"
       aria-hidden="true"
     >
@@ -74,8 +78,10 @@ import { SITE_TITLE } from "../consts";
 
     <!-- Lateral menu sidebar -->
     <div
-      class="relative ml-auto flex w-full max-w-sm flex-col overflow-y-auto bg-gray-900 pt-5 pb-4"
+      class="relative ml-auto flex w-full h-screen max-w-sm flex-col bg-gradient-to-b from-gray-950 to-gray-900
+ pt-5 pb-4"
     >
+      <!-- Header del menú -->
       <div class="flex items-center justify-between px-4">
         <h2 class="text-lg font-medium text-white">Menú</h2>
         <button
@@ -91,7 +97,9 @@ import { SITE_TITLE } from "../consts";
           </svg>
         </button>
       </div>
-      <div class="mt-5 flex flex-grow flex-col">
+
+      <!-- Contenido del menú -->
+      <div class="flex flex-grow flex-col mt-5">
         <nav class="flex-1 space-y-1 px-2">
           <a
             href="#"
@@ -111,12 +119,23 @@ import { SITE_TITLE } from "../consts";
           <div class="mt-4 px-3">
             <a
               href="#"
-              class="block rounded-md bg-teal-500 px-4 py-2 text-center text-base font-medium text-white hover:bg-teal-600"
+              class="block rounded-md bg-[#0097B2] px-4 py-2 text-center text-base font-medium text-white hover:opacity-90"
             >
               Agendar Consulta
             </a>
           </div>
         </nav>
+      </div>
+
+      <!-- Footer del menú -->
+      <div
+        class="border-t border-gray-700 p-4 text-center text-gray-400 text-sm"
+      >
+        <p>© 2025 Alernal. Todos los derechos reservados.</p>
+        <div class="mt-2 flex justify-center space-x-4">
+          <a href="#" class="hover:text-white">Términos</a>
+          <a href="#" class="hover:text-white">Privacidad</a>
+        </div>
       </div>
     </div>
   </div>

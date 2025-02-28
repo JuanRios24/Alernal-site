@@ -3,6 +3,8 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Hero from "../components/Hero.astro";
+import Services from "../components/Services.astro";
+import Choose from "../components/Choose.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
@@ -11,10 +13,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class="font-montserrat bg-[#181818]">
+  <body class="font-montserrat bg-gradient-to-br from-gray-900 gray-gray-900 to-black">
     <Header />
     <main>
       <Hero />
+      <Services />
+      <Choose />
     </main>
     <Footer />
   </body>
