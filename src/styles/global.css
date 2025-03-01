@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: BankGothic;
-    src: url('../public/fonts/bank_gothic_medium.ttf');
+    src: url('/fonts/bank_gothic_medium.ttf');
 }
 
 @import "tailwindcss";
