@@ -3,7 +3,7 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 
 export async function getPosts() {
   const url = `https://www.googleapis.com/blogger/v3/blogs/${BLOG_ID}/posts?key=${API_KEY}`;
-
+  
   try {
     const response = await fetch(url);
     const data = await response.json();
