@@ -1,5 +1,6 @@
 ---
 import { SITE_TITLE } from "../consts";
+import Modal from "./Modal.astro";
 ---
 
 <header
@@ -22,9 +23,6 @@ import { SITE_TITLE } from "../consts";
           <a href="/about" class="px-2 py-2 text-md font-medium hover:text-gray-300"
             >Nosotros</a
           >
-          <a href="#" class="px-2 py-2 text-md font-medium hover:text-gray-300"
-            >Servicios</a
-          >
           <a href="/blog" class="px-2 py-2 text-md font-medium hover:text-gray-300"
             >Recursos</a
           >
@@ -32,7 +30,8 @@ import { SITE_TITLE } from "../consts";
 
         <!-- CTA Button -->
         <a
-        href="#"
+        onclick="openModal()"
+          href="#"
           class="rounded-md bg-[#0097B2] px-4 py-2 text-md font-medium text-white hover:opacity-90 cursor-pointer"
         >
           Agendar Consulta
@@ -65,81 +64,17 @@ import { SITE_TITLE } from "../consts";
     </div>
   </div>
 
-  <!-- Mobile lateral menu -->
-  <div id="mobileMenu" class="fixed inset-0 z-40 md:hidden hidden">
-    <!-- Backdrop - clicking here closes the menu -->
-    <div
-      class="fixed inset-0"
-      style="background-color: rgba(0, 0, 0, 0.5);"
-      onclick="toggleMenu()"
-      aria-hidden="true"
-    >
-    </div>
-
-    <!-- Lateral menu sidebar -->
-    <div
-      class="relative ml-auto flex w-full h-screen max-w-sm flex-col bg-gradient-to-b from-gray-950 to-gray-900
- pt-5 pb-4"
-    >
-      <!-- Header del menú -->
-      <div class="flex items-center justify-between px-4">
-        <h2 class="text-lg font-medium text-white">Menú</h2>
-        <button
-          onclick="toggleMenu()"
-          class="rounded-md p-2 text-gray-400 hover:bg-gray-800 hover:text-white"
-        >
-          <svg class="h-6 w-6" aria-hidden="true">
-            <path
-              fill="none"
-              d="M6 18L18 6M6 6l12 12"
-              stroke="currentColor"
-              stroke-width="2"></path>
-          </svg>
-        </button>
-      </div>
-
-      <!-- Contenido del menú -->
-      <div class="flex flex-grow flex-col mt-5">
-        <nav class="flex-1 space-y-1 px-2">
-          <a
-            href="/about"
-            class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white"
-            >Nosotros</a
-          >
-          <a
-            href="#"
-            class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white"
-            >Servicios</a
-          >
-          <a
-            href="/blog"
-            class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white"
-            >Recursos</a
-          >
-          <div class="mt-4 px-3">
-            <a
-              href="#"
-              class="block rounded-md bg-[#0097B2] px-4 py-2 text-center text-base font-medium text-white hover:opacity-90"
-            >
-              Agendar Consulta
-            </a>
-          </div>
-        </nav>
-      </div>
-
-      <!-- Footer del menú -->
-      <div
-        class="border-t border-gray-700 p-4 text-center text-gray-400 text-sm"
-      >
-        <p>© 2025 Alernal. Todos los derechos reservados.</p>
-        <div class="mt-2 flex justify-center space-x-4">
-          <a href="#" class="hover:text-white">Términos</a>
-          <a href="#" class="hover:text-white">Privacidad</a>
-        </div>
-      </div>
-    </div>
+  <!-- Mobile dropdown menu -->
+  <div id="mobileMenu" class="hidden md:hidden">
+    <nav class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <a href="/about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white">Nosotros</a>
+      <a href="/blog" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-800 hover:text-white">Recursos</a>
+      <a href="#" onclick="openModal()" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-[#0097B2] hover:opacity-90">Agendar Consulta</a>
+    </nav>
   </div>
 </header>
+
+<Modal />
 
 <script lang="ts">
   function toggleMenu() {
@@ -147,10 +82,10 @@ import { SITE_TITLE } from "../consts";
     const menuIcon = document.getElementById("menuIcon");
     const closeIcon = document.getElementById("closeIcon");
 
-    // Alternar la visibilidad del menú
+    // Toggle the visibility of the menu
     mobileMenu.classList.toggle("hidden");
 
-    // Alternar los íconos del menú
+    // Toggle the menu icons
     menuIcon.classList.toggle("hidden");
     closeIcon.classList.toggle("hidden");
   }

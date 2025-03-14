@@ -30,8 +30,12 @@ const blogPosts = await getPosts();
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {blogPosts.length > 0 ? blogPosts.map((post) => <BlogPost post={post} />) : null}
+        {blogPosts && blogPosts.length > 0 ? (
+          blogPosts.map((post) => <BlogPost post={post} />)
+        ) : (
+          <p class="text-center col-span-full text-gray-400">Aún no hay recursos.</p>
+        )}
       </div>
-    </div>
-  </section>
-</LayoutMain>
+        </div>
+      </section>
+    </LayoutMain>
